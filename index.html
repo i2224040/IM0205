@@ -16,14 +16,14 @@
         }
         #videoElement {
             width: 60vw; /* 画面の横幅の60% */
-            height: 45vw; /* 画面の横幅の60%に対する4:3の比率 */
+            height: calc(60vw * 3 / 4); /* 4:3の比率 */
             object-fit: cover;
             z-index: 2;
         }
         #photoFrame {
             position: relative;
             width: 60vw; /* 画面の横幅の60% */
-            height: 45vw; /* 画面の横幅の60%に対する4:3の比率 */
+            height: calc(60vw * 3 / 4); /* 4:3の比率 */
             margin: auto;
             z-index: 3;
         }
@@ -44,7 +44,7 @@
     </style>
 </head>
 <body>
-    <video id="videoElement" autoplay></video>
+    <video id="videoElement" autoplay playsinline></video>
     <div id="photoFrame">
         <canvas id="photoCanvas"></canvas>
         <div id="overlay"></div>

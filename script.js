@@ -5,6 +5,7 @@ document.addEventListener('DOMContentLoaded', () => {
     let context = canvas.getContext('2d');
     let transparency = 0;
     let gameStarted = false;
+    let holdInterval;
 
     // カメラのストリームを取得（内カメラ、4:3の比率）
     navigator.mediaDevices.getUserMedia({
@@ -40,13 +41,33 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
-    // タップイベントリスナー
-    document.addEventListener('click', () => {
+    // 長押しイベントリスナー
+    document.addEventListener('mousedown', () => {
         if (!gameStarted) {
             takeScreenshot();
             gameStarted = true;
         } else {
-            increaseTransparency();
+            holdInterval = setInterval(increaseTransparency, 100);
         }
     });
+
+    document.addEventListener('mouseup', () => {
+        clearInterval(holdInterval);
+    });
+
+    document.addEventListener('touchstart', (e) => {
+        e.preventDefault();
+        if (!gameStarted) {
+            takeScreenshot();
+            gameStarted = true;
+        } else {
+            holdInterval = setInterval(increaseTransparency, 100);
+        }
+    });
+
+    document.addEventListener('touchend', (e) => {
+        e.preventDefault();
+        clearInterval(holdInterval);
+    });
 });
+
