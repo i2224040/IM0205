@@ -7,11 +7,11 @@ document.addEventListener('DOMContentLoaded', () => {
     let gameStarted = false;
     let holdInterval;
 
-    // カメラのストリームを取得（内カメラ、4:3の比率）
+    // カメラのストリームを取得（内カメラ、40:30の比率）
     navigator.mediaDevices.getUserMedia({
         video: {
             facingMode: 'user',
-            aspectRatio: 4 / 3
+            aspectRatio: 40 / 30
         }
     })
     .then((stream) => {
@@ -41,10 +41,17 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
+    // 背景色をランダムに変更する関数
+    function changeBackgroundColor() {
+        const randomColor = Math.floor(Math.random()*16777215).toString(16);
+        document.body.style.backgroundColor = `#${randomColor}`;
+    }
+
     // 長押しイベントリスナー
     document.addEventListener('mousedown', () => {
         if (!gameStarted) {
             takeScreenshot();
+            changeBackgroundColor();
             gameStarted = true;
         } else {
             holdInterval = setInterval(increaseTransparency, 100);
@@ -59,6 +66,7 @@ document.addEventListener('DOMContentLoaded', () => {
         e.preventDefault();
         if (!gameStarted) {
             takeScreenshot();
+            changeBackgroundColor();
             gameStarted = true;
         } else {
             holdInterval = setInterval(increaseTransparency, 100);
