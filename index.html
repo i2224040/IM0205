@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>インタラクティブゲーム</title>
+    <style>
+        body {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0; /* 背景色を追加 */
+        }
+        #videoElement {
+            width: 60vw; /* 画面の横幅の60% */
+            height: 45vw; /* 画面の横幅の60%に対する4:3の比率 */
+            object-fit: cover;
+            z-index: 2;
+        }
+        #photoFrame {
+            position: relative;
+            width: 60vw; /* 画面の横幅の60% */
+            height: 45vw; /* 画面の横幅の60%に対する4:3の比率 */
+            margin: auto;
+            z-index: 3;
+        }
+        #overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0; /* 透明度を初期化（0 = 0%） */
+            background-size: cover;
+            background-position: center;
+            z-index: 4;
+        }
+        #photoCanvas {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <video id="videoElement" autoplay></video>
+    <div id="photoFrame">
+        <canvas id="photoCanvas"></canvas>
+        <div id="overlay"></div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
