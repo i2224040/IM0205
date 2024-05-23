@@ -4,18 +4,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>インタラクティブゲーム</title>
-    <link rel="stylesheet" href="style.css"> <!-- CSSファイルを読み込む -->
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <video id="videoElement" autoplay playsinline></video>
-    <div id="photoFrame">
-        <canvas id="photoCanvas"></canvas>
-        <div id="overlay"></div>
-    </div>
-    <input type="range" min="0" max="100" value="0" id="transparencySlider"> <!-- 透明度調整用のスライダー -->
-    <script src="script.js"></script> <!-- JavaScriptファイルを読み込む -->
+    <input type="range" min="0" max="100" value="0" id="transparencySlider" class="slider-vertical"> <!-- 透明度調整用のスライダー -->
+    <canvas id="photoCanvas"></canvas>
+    <div id="overlay"></div>
+    <script src="script.js"></script>
 </body>
 </html>
-
 
 
