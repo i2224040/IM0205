@@ -5,18 +5,23 @@ body {
     height: 100vh;
     margin: 0;
     font-family: Arial, sans-serif;
-    position: relative; /* body要素を相対位置に設定 */
 }
 
 #videoElement {
-    width: 100%; /* カメラを画面いっぱいに表示 */
-    height: 100%; /* カメラを画面いっぱいに表示 */
-    object-fit: cover; /* カメラ映像を画面いっぱいに表示 */
-    z-index: 1;
+    width: 40vw; /* 画面の横幅の40% */
+    height: 30vw; /* 画面の横幅の30% */
+    object-fit: contain; /* ビデオのアスペクト比を維持 */
+    display: block;
+    margin: auto;
+    z-index: 2;
 }
 
-#photoCanvas {
-    display: none; /* スクリーンショット用のキャンバスは非表示にする */
+#photoFrame {
+    position: relative;
+    width: 40vw; /* 画面の横幅の40% */
+    height: 30vw; /* 画面の横幅の30% */
+    margin: auto;
+    z-index: 3;
 }
 
 #overlay {
@@ -28,22 +33,9 @@ body {
     opacity: 0; /* 透明度を初期化（0 = 0%） */
     background-size: cover;
     background-position: center;
-    z-index: 2;
+    z-index: 4;
 }
 
-#transparencySlider {
-    position: absolute;
-    bottom: 20px; /* 画面下部に配置 */
-    left: 50%; /* 画面中央に配置 */
-    transform: translateX(-50%); /* 水平方向中央揃え */
-    width: 200px; /* バーの幅 */
-    -webkit-appearance: none;
-    appearance: none;
-    background: rgba(255, 192, 203, 0.5); /* ピンクの背景色 */
-    outline: none; /* フォーカス時のアウトラインを非表示 */
-    opacity: 0.7; /* バーの透明度 */
-    z-index: 3;
+#photoCanvas {
+    display: none;
 }
-
-
-
