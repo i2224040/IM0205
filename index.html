@@ -4,43 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>インタラクティブゲーム</title>
-    <style>
-        body {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            height: 100vh;
-            margin: 0;
-            font-family: Arial, sans-serif;
-        }
-        #videoElement {
-            width: 40vw; /* 画面の横幅の40% */
-            height: 30vw; /* 画面の横幅の30% */
-            object-fit: cover;
-            z-index: 2;
-        }
-        #photoFrame {
-            position: relative;
-            width: 40vw; /* 画面の横幅の40% */
-            height: 30vw; /* 画面の横幅の30% */
-            margin: auto;
-            z-index: 3;
-        }
-        #overlay {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            opacity: 0; /* 透明度を初期化（0 = 0%） */
-            background-size: cover;
-            background-position: center;
-            z-index: 4;
-        }
-        #photoCanvas {
-            display: none;
-        }
-    </style>
+    <link rel="stylesheet" href="style.css"> <!-- CSSファイルを読み込む -->
 </head>
 <body>
     <video id="videoElement" autoplay playsinline></video>
@@ -48,8 +12,10 @@
         <canvas id="photoCanvas"></canvas>
         <div id="overlay"></div>
     </div>
-    <script src="script.js"></script>
+    <input type="range" min="0" max="100" value="0" id="transparencySlider"> <!-- 透明度調整用のスライダー -->
+    <script src="script.js"></script> <!-- JavaScriptファイルを読み込む -->
 </body>
 </html>
+
 
 
